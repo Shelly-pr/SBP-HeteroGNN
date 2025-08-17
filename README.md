@@ -71,4 +71,4 @@ Accuracy, Precision, Recall, F1, ROC-AUC 等指标
 
 ## 引用
 如果你使用了本代码，请引用相关论文：  
-Rui Peng. Perplexity-Driven HeteroGNN for AIGC Text Detection. 2025.
+Rui Peng. Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection. 2025.
