@@ -1,8 +1,8 @@
 # README.md
 
 ## 项目简介
-本项目实现了PD-HeteroGNN（Perplexity-Driven Heterogeneous Graph Neural Network），用于AIGC（人工智能生成内容）文本检测。  
-核心思路是结合 困惑度（Perplexity）特征与TF–IDF 特征，构建文档–词异构图，并利用Heterogeneous Graph Transformer (HGT)进行分类，从而有效区分人写文本与机器生成文本。
+本项目实现了SBP-HeteroGNNStreaming Bilingual Perplexity‑Driven HeteroGNN for AIGC Text Detection），用于AIGC（人工智能生成内容）文本检测。为了简化我将代码命名为PDHGN  
+核心思路是结合困惑度（Perplexity）特征与TF–IDF 特征，构建文档–词异构图，并利用Heterogeneous Graph Transformer (HGT)进行分类，从而有效区分人写文本与机器生成文本。
 
 
 ## 环境依赖
