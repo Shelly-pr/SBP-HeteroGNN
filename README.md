@@ -1,7 +1,7 @@
 # README.md
 
 ## 项目简介
-本项目是CSAI会议论文《Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection》的AIGC算法。为了简化我将代码命名为PDHGN  
+本项目是CSAI会议论文《Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection》的AIGC算法。为了简化我将代码命名为SBPHGN  
 核心思路是结合困惑度（Perplexity）特征与TF–IDF 特征，构建文档–词异构图，并利用Heterogeneous Graph Transformer (HGT)进行分类，从而有效区分人写文本与机器生成文本。
 
 
@@ -45,12 +45,12 @@ text,label
 
 ### 训练模型
 运行以下命令开始训练：
-python PDHGN.py --mode train --csv hc3_bilingual.csv
+python SBPHGN.py --mode train --csv hc3_bilingual.csv
 
 
 ### 评估模型
 训练完成后，运行以下命令在测试集上评估：
-python PDHGN.py --mode eval --csv hc3_bilingual.csv
+python SBPHGN.py --mode eval --csv hc3_bilingual.csv
 
 
 ### 主要参数说明
@@ -71,4 +71,4 @@ Accuracy, Precision, Recall, F1, ROC-AUC 等指标
 
 ## 引用
 如果你使用了本代码，请引用相关论文：  
-Rui Peng. Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection. 2025.
+Rui Peng,Yuejin Zhang. Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection. 2025.
