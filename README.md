@@ -1,19 +1,26 @@
 # README.md
 
-## 项目简介
-本项目是CSAI会议论文《Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection》的AIGC算法。为了简化我将代码命名为SBPHGN  
-核心思路是结合困惑度（Perplexity）特征与TF–IDF 特征，构建文档–词异构图，并利用Heterogeneous Graph Transformer (HGT)进行分类，从而有效区分人写文本与机器生成文本。
+## SBP-HeteroGNN
+This repository contains the official implementation of the paper:**Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection**.
+Accepted at the 9th International Conference on Computer Science and Artificial Intelligence (CSAI 2025), Beijing, China.
 
+## Introduction
+SBP-HeteroGNN is a lightweight heterogeneous graph neural network framework designed for **Chinese–English AIGC text detection**.  
+Key features include:
+- Hybrid tokenizer combining regex and Jieba for bilingual preprocessing.
+- Perplexity-driven edge construction using GPT-2 signals.
+- Heterogeneous Graph Transformer for robust feature fusion.
+- Bilingual embeddings (GloVe + Tencent Word2Vec).
+- Streaming incremental training for large-scale, real-time monitoring.
 
-## 环境依赖
-请使用 Python 3.8+，推荐在虚拟环境或 Conda 中安装依赖。
+## Requirements
+Python 3.8+
 
 ```bash
 conda create -n pdhetero python=3.8
 conda activate pdhetero
 ```
 
-安装主要依赖：
 pip install torch==1.13.1
 pip install torch-geometric==2.3.1
 pip install scikit-learn==1.2.2
@@ -25,50 +32,52 @@ pip install jieba
 
 
 
-## 数据准备
+## Dataset Preparation
 
-### 1. 数据集
-本实验主要基于HC3-Bilingual数据集（中英文混合AIGC检测语料）。  
-你需要准备一个CSV文件，包含以下字段：
-`text`：文本内容
-`label`：标签（0 = 人类文本，1 = AI生成文本）
+### 1. HC3-Bilingual Dataset
+The experiments are conducted on the **HC3-Bilingual** dataset (a Chinese–English mixed corpus for AIGC detection).  
+You need to prepare a `.csv` file with the following columns:  
+- `text`: raw text content  
+- `label`: class label (`0 = human-written`, `1 = AI-generated`)  
 
-例如：
+**Example format:**  
+```csv
 text,label
 "这是一个人工撰写的句子。",0
 "This is a machine-generated sentence.",1
+```
 
-将数据文件命名为hc3_bilingual.csv并放置在项目根目录。
+## Usage
 
-
-## 运行方法
-
-### 训练模型
-运行以下命令开始训练：
+### 1.Training
+Run the following command to start training:
+```bash
 python SBPHGN.py --mode train --csv hc3_bilingual.csv
+```
 
-
-### 评估模型
-训练完成后，运行以下命令在测试集上评估：
+### 2.Evaluation
+After training, evaluate the model on the test set using:
 python SBPHGN.py --mode eval --csv hc3_bilingual.csv
 
 
-### 主要参数说明
-| 参数             | 说明                             | 默认值     |
-| ------------ | ---------------------- | ------- |
-| --mode       | 运行模式，可选 train/eval | 必填 |
-| --csv            | 输入数据集路径                | 必填 |
-| batch_size  | 批大小（需在代码中修改）| 32  |
-| epochs       | 训练轮数（需在代码中修改） | 5 |
+### 3.Key Parameters
+| Argument     | Description                                | Default  |
+| ------------ | ------------------------------------------ | -------- |
+| --mode       | Execution mode:train/eval                  | Required |
+| --csv        | Path to input dataset                      | Required |
+| batch_size   | Mini-batch size (modify directly in code)  | 32       |
+| epochs       | Number of training epochs (modify in code) | 5        |
 
 
 
-## 结果与复现
-运行后会输出：
-Accuracy, Precision, Recall, F1, ROC-AUC 等指标  
-训练好的模型权重（如final_model.pth）
+### 4.Results & Reproducibility
+After running, the framework will output:
+Evaluation metrics: Accuracy, Precision, Recall, F1, ROC-AUC
+Trained model weights, e.g. final_model.pth
 
 
-## 引用
-如果你使用了本代码，请引用相关论文：  
-Rui Peng,Yuejin Zhang. Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection. 2025.
+If you use this code or find it helpful in your research, please cite the following paper:
+**Rui Peng, Yuejin Zhang.** 
+**Streaming Bilingual Perplexity-Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection.** 
+In **Proceedings of the 9th International Conference on Computer Science and Artificial Intelligence (CSAI 2025)**, Beijing, China, 2025.
+
