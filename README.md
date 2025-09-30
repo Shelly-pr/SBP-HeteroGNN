@@ -1,7 +1,7 @@
 # README.md
 
 ## 项目简介
-本项目实现了SBP-HeteroGNNStreaming Bilingual Perplexity‑Driven HeteroGNN for AIGC Text Detection），用于AIGC（人工智能生成内容）文本检测。为了简化我将代码命名为PDHGN  
+本项目是CSAI会议论文《Streaming Bilingual Perplexity‑Driven HeteroGNN: A Heterogeneous Graph Transformer with Incremental Training for AIGC Text Detection》的AIGC算法。为了简化我将代码命名为PDHGN  
 核心思路是结合困惑度（Perplexity）特征与TF–IDF 特征，构建文档–词异构图，并利用Heterogeneous Graph Transformer (HGT)进行分类，从而有效区分人写文本与机器生成文本。
 
 
